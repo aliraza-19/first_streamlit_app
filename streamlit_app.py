@@ -1,12 +1,12 @@
 import streamlit as st
 st.title('My Mom\'s New Healthy Diner')
-st.header("Breakfast Favorites")
+st.subheader("Breakfast Favorites")
 st.text('🥣 Omega 3 & Blueberry Oatmeal')
 st.text('🥗 Kale, Spinach & Rocket Smoothie')
 st.text('🐔 Hard-Boiled Free-Range Egg')
 st.text('🥑🍞 Avacado Toast')
 
-st.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
+st.subheader('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 import pandas
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
@@ -20,7 +20,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 st.dataframe(fruits_to_show)
 
 # New section to display fruityvice api response
-st.header('Fruityvice Fruit Advice!')
+st.subheader('Fruityvice Fruit Advice!')
 fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
 st.write('The user entered ', fruit_choice)
 
@@ -38,5 +38,5 @@ my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("select * from fruit_load_list")
 my_data_row = my_cur.fetchone()
-st.header('The fruit load list contains:')
+st.subheader('The fruit load list contains:')
 st.dataframe(my_data_row)
