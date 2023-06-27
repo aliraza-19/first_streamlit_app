@@ -1,6 +1,6 @@
 import streamlit as st
 st.title('My Mom\'s New Healthy Diner')
-st.header('Breakfast Favorites')
+#st.header('Breakfast Favorites')
 st.text('🥣 Omega 3 & Blueberry Oatmeal')
 st.text('🥗 Kale, Spinach & Rocket Smoothie')
 st.text('🐔 Hard-Boiled Free-Range Egg')
@@ -34,9 +34,9 @@ st.dataframe(fruityvice_normalized)
 
 import snowflake.connector
 
-#my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-#my_cur = my_cnx.cursor()
-#my_cur.execute("select * from fruit_load_list")
-#my_data_row = my_cur.fetchone()
-#st.header('The fruit load list contains:')
-#st.dataframe(my_data_row)
+my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("select * from fruit_load_list")
+my_data_row = my_cur.fetchone()
+st.header('The fruit load list contains:')
+st.dataframe(my_data_row)
