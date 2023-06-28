@@ -43,7 +43,7 @@ except URLError as e:
 
 st.write('The user entered ', fruit_choice)
 
-st.header('View Our Fruit List - Add Your Favorites!')
+st.subheader('View Our Fruit List - Add Your Favorites!')
 
 # snowflake-related functions
 def get_fruit_load_list():
